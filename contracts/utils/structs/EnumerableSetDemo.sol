@@ -6,33 +6,32 @@ import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 contract EnumerableSetDemo {
     using EnumerableSet for EnumerableSet.AddressSet;
 
-    EnumerableSet.AddressSet private items;
+    EnumerableSet.AddressSet private addressSet;
 
-    function addItems(address[] memory _items) private {
-        uint256 itemsLength = _items.length;
-        for (uint256 i = 0; i < itemsLength; ) {
-            require(items.add(_items[i]), "EnumerableSetDemo: DUPLICATE_ITEM");
-            unchecked {
-                ++i;
-            }
-        }
-    }
-
-    function removeItems(address[] memory _items) private {
+    function addItems(address[] memory _items) external {
         uint256 itemsLength = _items.length;
         for (uint256 i = 0; i < itemsLength; ) {
             require(
-                items.remove(_items[i]),
+                addressSet.add(_items[i]),
+                "EnumerableSetDemo: DUPLICATE_ITEM"
+            );
+            unchecked { ++i; }
+        }
+    }
+
+    function removeItems(address[] memory _items) external {
+        uint256 itemsLength = _items.length;
+        for (uint256 i = 0; i < itemsLength; ) {
+            require(
+                addressSet.remove(_items[i]),
                 "EnumerableSetDemo: NONEXISTENT_ITEM"
             );
-            unchecked {
-                ++i;
-            }
+            unchecked { ++i; }
         }
     }
 
     function getItems() external view returns(address[] memory) {
-        return items.values();
+        return addressSet.values();
     }
     
 }
