@@ -15,7 +15,7 @@ Create an enviroment file named `.env` and use `.env.example` as template.
 Run the test suites:
 
 ```shell
-hh test test/utils/structs/enumerable.set.test.ts
+hh test
 ```
 
 # Utilities
