@@ -2,12 +2,12 @@
 
 Install dependencies:
 ```shell
-$ npm i
+npm i
 ```
 
 Hardhat shorthand (Optional) hh -> npx hardhat:
 ```shell
-$ npm i -g hardhat-shorthand
+npm i -g hardhat-shorthand
 ```
 
 Create an enviroment file named `.env` and use `.env.example` as template.
@@ -15,7 +15,7 @@ Create an enviroment file named `.env` and use `.env.example` as template.
 Run the test suites:
 
 ```shell
-$ hh test test/utils/structs/enumerable.set.test.ts
+hh test test/utils/structs/enumerable.set.test.ts
 ```
 
 # Utilities
